@@ -9,8 +9,7 @@ const Tasks = ({
 }) => {
   const projectTasks = tasks.filter(
     (task) => task.projectId === selectedProjectId
-  );
-  console.log(projectTasks);
+  ); // loop in it
 
   return (
     <section>
