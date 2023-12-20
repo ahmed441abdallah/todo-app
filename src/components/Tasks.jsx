@@ -1,21 +1,18 @@
 import React from "react";
 import NewTask from "./NewTask";
+import { useProject } from "../context/ProjectContext";
 
-const Tasks = ({
-  handleAddTask,
-  tasks,
-  handleDeleteTask,
-  selectedProjectId,
-}) => {
-  const projectTasks = tasks.filter(
-    (task) => task.projectId === selectedProjectId
+const Tasks = () => {
+  const { projectsSate, handleDeleteTask } = useProject();
+  const projectTasks = projectsSate.tasks.filter(
+    (task) => task.projectId === projectsSate.selectedProjectId
   ); // loop in it
 
   return (
     <section>
       <h2 className=" text-2xl text-stone-700 font-bold mb-4"> TASKS ⏳</h2>
-      <NewTask handleAddTask={handleAddTask}></NewTask>
-      {tasks.length >= 1 ? (
+      <NewTask></NewTask>
+      {projectsSate.tasks.length >= 1 ? (
         <ul className=" p-4 mt-4 rounded-md bg-stone-100">
           {projectTasks.map((el) => (
             <li key={el.id} className="flex justify-between my-4 border-b py-2">

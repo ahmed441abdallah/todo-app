@@ -1,11 +1,8 @@
 import React from "react";
+import { useProject } from "../context/ProjectContext";
 
-const ProjectSidePar = ({
-  handleStart,
-  projectsSate,
-  handleSelectedProject,
-  selectedProjectId,
-}) => {
+const ProjectSidePar = () => {
+  const { projectsSate, handleStart, handleSelectedProject } = useProject();
   return (
     <aside className=" w-1/3 bg-stone-900 px-8 py-16 rounded-r-xl text-stone-50 md:w-72">
       <h2 className=" font-bold uppercase mb-5 md:text-xl text-stone-200">
@@ -24,7 +21,7 @@ const ProjectSidePar = ({
           <li key={el.id}>
             <button
               className={
-                el.id === selectedProjectId
+                el.id === projectsSate.selectedProjectId
                   ? "w-full px-2 py-2 m-2 text-left text-stone-200 rounded-sm bg-stone-800 hover:text-slate-200 hover:bg-stone-800"
                   : "w-full px-2 py-2 m-2 text-left text-stone-400 rounded-sm bg-stone-600 hover:text-slate-400 hover:bg-stone-800"
               }

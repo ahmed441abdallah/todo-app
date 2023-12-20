@@ -3,8 +3,10 @@ import { useState } from "react";
 import Modal from "./Modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useProject } from "../context/ProjectContext";
 
-const NewTask = ({ handleAddTask }) => {
+const NewTask = () => {
+  const { handleAddTask } = useProject();
   const modal = useRef();
 
   const [enteredTask, setEnteredTask] = useState("");

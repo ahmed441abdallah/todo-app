@@ -3,7 +3,9 @@ import Input from "./Input";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Modal from "./Modal";
-const NewProject = ({ handleAddProject, handleCancel }) => {
+import { useProject } from "../context/ProjectContext";
+const NewProject = () => {
+  const { handleAddProject, handleCancel } = useProject();
   const modal = useRef();
   const title = useRef();
   const description = useRef();
@@ -31,7 +33,6 @@ const NewProject = ({ handleAddProject, handleCancel }) => {
     <>
       <Modal ref={modal}>
         <h2 className=" font-bold mt-4 text-stone-500 mb-4">
-          {" "}
           Invalid Input 🔴
         </h2>
         <p className="text-stone-400 mb-4 ">
